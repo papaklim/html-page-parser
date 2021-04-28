@@ -7,17 +7,14 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 
-public class HTMLParser {
+public class HtmlParser implements Parser {
 
-    public HTMLParser() {
-    }
-
-    public String getHtml(String url) throws IOException {
+    @Override
+    public String parseHtml(String url) throws IOException {
         HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
         conn.setRequestMethod("GET");
         int responseStatus = conn.getResponseCode();
-        System.out.println(responseStatus);
-        String rawString = "";
+        String result = "";
         if (responseStatus == 200) {
             String line;
             BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -25,8 +22,8 @@ public class HTMLParser {
             while ((line = in.readLine()) != null) {
                 sb.append(line);
             }
-            rawString = sb.toString();
+            result = sb.toString();
         }
-        return rawString;
+        return result;
     }
 }
