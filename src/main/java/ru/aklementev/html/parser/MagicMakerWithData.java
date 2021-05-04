@@ -1,16 +1,23 @@
 package ru.aklementev.html.parser;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class MagicMakerWithData {
+//    public MagicMakerWithData(Loader loader, Parser parser, Printer printer) {
+//        this.loader = loader;
+//        this.parser = parser;
+//        this.printer = printer;
+//    }
+
+    Loader loader = new SimpleLoader();
     Parser parser = new HtmlParser();
-    Splitter splitter = new StringSplitter();
-    Counter counter = new WordsCounter();
+    Printer printer = new ResultPrinter();
+
 
     public void doMagicWith(String url) throws IOException {
-        String parsedString = parser.parseHtml(url);
-        ArrayList<String> splittedWords = splitter.getSplittedArray(parsedString);
-        counter.count(splittedWords);
+        File file = loader.downloadPage(url);
+        Result result = parser.parseHtml(file);
+        printer.print(result);
     }
 }

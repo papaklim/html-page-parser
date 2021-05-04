@@ -1,17 +1,15 @@
 package ru.aklementev.html.parser;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class WordsCounter implements Counter {
 
     @Override
-    public void count(ArrayList<String> words) {
-        Map<String, Integer> result = new HashMap<>();
+    public Result count(ArrayList<String> words) {
+        Result result = new Result();
         for (String word : words) {
-            result.merge(word, 1, Integer::sum);
+            result.addToResult(word);
         }
-        System.out.println(result);
+        return result;
     }
 }

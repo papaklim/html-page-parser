@@ -1,29 +1,23 @@
 package ru.aklementev.html.parser;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.io.*;
+import java.util.ArrayList;
 
 
 public class HtmlParser implements Parser {
+    private final Splitter splitter = new StringSplitter();
+    private final Counter counter = new WordsCounter();
+
 
     @Override
-    public String parseHtml(String url) throws IOException {
-        HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
-        conn.setRequestMethod("GET");
-        int responseStatus = conn.getResponseCode();
-        String result = "";
-        if (responseStatus == 200) {
-            String line;
-            BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            StringBuilder sb = new StringBuilder();
-            while ((line = in.readLine()) != null) {
-                sb.append(line);
-            }
-            result = sb.toString();
-        }
+    public Result parseHtml(File file) throws IOException {
+        Result result = new Result();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+        String parsedString = bufferedReader.readLine();
+        ArrayList<String> splittedString = splitter.getSplittedArray(parsedString);
+        result = counter.count(splittedString);
         return result;
+
     }
 }
+

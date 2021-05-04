@@ -3,8 +3,8 @@ package ru.aklementev.html.parser;
 import java.io.File;
 import java.io.IOException;
 
-public interface Parser {
+public interface Loader {
 
-    Result parseHtml(File file) throws IOException;
+    public File downloadPage(String url) throws IOException;
 
 }

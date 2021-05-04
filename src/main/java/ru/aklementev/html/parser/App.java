@@ -9,6 +9,7 @@ public class App {
     }
 
     public static void start() throws IOException {
-        new MagicMakerWithData().doMagicWith("https://www.simbirsoft.com/");
+//        new MagicMakerWithData().doMagicWith("https://www.simbirsoft.com/");
+        new MagicMakerWithData().doMagicWith("https://bash.im/");
     }
 }
