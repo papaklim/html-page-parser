@@ -10,16 +10,20 @@ public class HtmlParser implements Parser {
 
 
     @Override
-    public Result parseHtml(File file) throws IOException {
+    public Result parseHtml(File file) {
         Result result = new Result();
-        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-        String parsedString = "";
-        ArrayList<String> allGoodWords = new ArrayList<>();
-        while ((parsedString = in.readLine()) != null) {
-            ArrayList<String> splittedArray = splitter.getSplittedArray(parsedString);
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
+            String parsedString;
+            ArrayList<String> allGoodWords = new ArrayList<>();
+            while ((parsedString = in.readLine()) != null) {
+                ArrayList<String> splittedArray = splitter.getSplittedArray(parsedString);
                 allGoodWords.addAll(splittedArray);
-            result = counter.count(allGoodWords);
+                result = counter.count(allGoodWords);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
         return result;
     }
 }

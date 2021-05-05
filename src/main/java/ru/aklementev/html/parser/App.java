@@ -5,11 +5,13 @@ import java.io.IOException;
 
 public class App {
     public static void main(String[] args) throws IOException {
-        start();
+        if (args.length != 1) {
+            throw new ArrayIndexOutOfBoundsException("Invalid number of arguments");
+        }
+        start(args[0]);
     }
 
-    public static void start() throws IOException {
-//        new MagicMakerWithData(new SimpleLoader(), new HtmlParser(), new ResultPrinter()).doMagicWith("https://www.simbirsoft.com/");
-        new MagicMakerWithData(new SimpleLoader(), new HtmlParser(), new ResultPrinter()).doMagicWith("https://bash.im/");
+    public static void start(String url) throws IOException {
+        new MagicMakerWithData(new HtmlLoader(), new HtmlParser(), new ResultPrinter()).doMagicWith(url);
     }
 }

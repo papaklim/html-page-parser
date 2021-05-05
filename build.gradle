@@ -2,6 +2,14 @@ plugins {
     id 'java'
 }
 
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'ru.aklementev.html.parser.App'
+        )
+    }
+}
+
 group 'ru.aklementev.html.parser'
 version '1.0-SNAPSHOT'
 
@@ -17,3 +25,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
