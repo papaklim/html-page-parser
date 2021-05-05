@@ -17,7 +17,6 @@ public class HtmlParser implements Parser {
         ArrayList<String> allGoodWords = new ArrayList<>();
         while ((parsedString = in.readLine()) != null) {
             ArrayList<String> splittedArray = splitter.getSplittedArray(parsedString);
-            if (splittedArray.toArray().length > 0)
                 allGoodWords.addAll(splittedArray);
             result = counter.count(allGoodWords);
         }
