@@ -2,6 +2,7 @@ package ru.aklementev.html.parser;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Result {
 
@@ -11,15 +12,10 @@ public class Result {
         wordCountMap.merge(word, 1, Integer::sum);
     }
 
-
     @Override
     public String toString() {
-        StringBuilder resultString = new StringBuilder();
-        for (Map.Entry<String, Integer> thisEntry : wordCountMap.entrySet()) {
-            Object key = thisEntry.getKey();
-            Object value = thisEntry.getValue();
-            resultString.append(key.toString()).append(": ").append(value.toString()).append("\n");
-        }
-        return resultString.toString();
+        return wordCountMap.keySet().stream()
+                .map(key -> key + "-" + wordCountMap.get(key))
+                .collect(Collectors.joining("\n"));
     }
 }
