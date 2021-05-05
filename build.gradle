@@ -2,27 +2,44 @@ plugins {
     id 'java'
 }
 
-jar {
+tasks.register('uberJar', Jar) {
     manifest {
         attributes(
+                'Multi-Release': 'true',
                 'Main-Class': 'ru.aklementev.html.parser.App'
         )
     }
-}
+    archiveClassifier = 'uber'
 
-group 'ru.aklementev.html.parser'
-version '1.0-SNAPSHOT'
+    from sourceSets.main.output
 
-repositories {
-    mavenCentral()
-}
+    dependsOn configurations.runtimeClasspath
+    from {
+        configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
+    }}
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-}
+    jar.enabled = false
+    build {
+        dependsOn uberJar
+    }
 
-test {
-    useJUnitPlatform()
-}
+    group 'ru.aklementev.html.parser'
+    version '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+        compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
+        compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
+        compile group: 'com.fasterxml.jackson.dataformat' , name: 'jackson-dataformat-yaml', version: '2.12.3'
+        compile group: 'com.fasterxml.jackson.core' , name: 'jackson-databind', version: '2.12.3'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 
