@@ -12,12 +12,16 @@ public class HtmlParser implements Parser {
     @Override
     public Result parseHtml(File file) throws IOException {
         Result result = new Result();
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
-        String parsedString = bufferedReader.readLine();
-        ArrayList<String> splittedString = splitter.getSplittedArray(parsedString);
-        result = counter.count(splittedString);
+        BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+        String parsedString = "";
+        ArrayList<String> allGoodWords = new ArrayList<>();
+        while ((parsedString = in.readLine()) != null) {
+            ArrayList<String> splittedArray = splitter.getSplittedArray(parsedString);
+            if (splittedArray.toArray().length > 0)
+                allGoodWords.addAll(splittedArray);
+            result = counter.count(allGoodWords);
+        }
         return result;
-
     }
 }
 
