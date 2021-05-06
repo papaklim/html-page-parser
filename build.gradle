@@ -16,30 +16,31 @@ tasks.register('uberJar', Jar) {
     dependsOn configurations.runtimeClasspath
     from {
         configurations.runtimeClasspath.findAll { it.name.endsWith('jar') }.collect { zipTree(it) }
-    }}
-
-    jar.enabled = false
-    build {
-        dependsOn uberJar
     }
+}
 
-    group 'ru.aklementev.html.parser'
-    version '1.0-SNAPSHOT'
+jar.enabled = false
+build {
+    dependsOn uberJar
+}
 
-    repositories {
-        mavenCentral()
-    }
+group 'ru.aklementev.html.parser'
+version '1.0-SNAPSHOT'
 
-    dependencies {
-        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-        testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-        compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
-        compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
-        compile group: 'com.fasterxml.jackson.dataformat' , name: 'jackson-dataformat-yaml', version: '2.12.3'
-        compile group: 'com.fasterxml.jackson.core' , name: 'jackson-databind', version: '2.12.3'
-    }
+repositories {
+    mavenCentral()
+}
 
-    test {
-        useJUnitPlatform()
-    }
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.14.1'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.14.1'
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.12.3'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.3'
+}
+
+test {
+    useJUnitPlatform()
+}
 
