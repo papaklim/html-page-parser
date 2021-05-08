@@ -10,7 +10,7 @@ public class HtmlParser implements Parser {
 
 
     @Override
-    public Result parseHtml(File file) {
+    public Result parseHtml(File file) throws IOException {
         Result result = new Result();
         try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
             String parsedString;
@@ -20,10 +20,7 @@ public class HtmlParser implements Parser {
                 allGoodWords.addAll(splittedArray);
                 result = counter.count(allGoodWords);
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-
         return result;
     }
 }

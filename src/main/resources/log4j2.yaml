@@ -31,6 +31,7 @@ Configutation:
       level: debug
       AppenderRef:
         - ref: Console_Appender
+        - ref: File_Appender
     Logger:
       - name: ru.aklementev.html.parser.log4j2yaml
         additivity: false
