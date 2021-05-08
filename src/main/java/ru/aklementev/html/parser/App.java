@@ -1,16 +1,12 @@
 package ru.aklementev.html.parser;
 
-
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import java.io.IOException;
 
 
 public class App {
     private static final Logger logger = LogManager.getLogger();
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         if (args.length != 1) {
             logger.error("Invalid number of arguments");
             throw new ArrayIndexOutOfBoundsException();
@@ -21,7 +17,7 @@ public class App {
 
     }
 
-    public static void start(String url) throws IOException {
+    public static void start(String url) {
         new MagicMakerWithData(new HtmlLoader(), new HtmlParser(), new ResultPrinter()).doMagicWith(url);
     }
 }
