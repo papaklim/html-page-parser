@@ -2,6 +2,7 @@ package ru.aklementev.html.parser;
 
 import java.io.*;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 public class HtmlLoader implements Loader {
@@ -10,8 +11,9 @@ public class HtmlLoader implements Loader {
 
     private String extractEncoding(HttpURLConnection conn) {
         String contentType = conn.getHeaderField("Content-Type");
-        System.out.println(contentType.substring(contentType.lastIndexOf("=") + 1));
-        return contentType.substring(contentType.lastIndexOf("=") + 1);
+        if (contentType != null) {
+            return contentType.substring(contentType.lastIndexOf("=") + 1);
+        } else return defaultEncoding;
     }
 
     @Override
