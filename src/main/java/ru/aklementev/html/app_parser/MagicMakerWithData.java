@@ -1,10 +1,13 @@
-package ru.aklementev.html.parser;
+package ru.aklementev.html.app_parser;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.aklementev.html.app_parser.loader.Loader;
+import ru.aklementev.html.app_parser.model.Result;
+import ru.aklementev.html.app_parser.parser.Parser;
+import ru.aklementev.html.app_parser.printer.Printer;
 
 import java.io.File;
-import java.io.IOException;
 
 public class MagicMakerWithData {
     private static final Logger logger = LogManager.getLogger();
@@ -18,13 +21,16 @@ public class MagicMakerWithData {
         this.printer = printer;
     }
 
-    public void doMagicWith(String url) {
+    public void doMagicWith(String[] args) {
         try {
-            File file = loader.downloadPage(url);
+            if (args.length != 1) {
+                throw new IllegalArgumentException("Invalid number of arguments");
+            }
+            File file = loader.downloadPage(args[0]);
             Result result = parser.parseHtml(file);
             printer.print(result);
-        } catch (IOException e) {
-            logger.error(e);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
         }
     }
 }

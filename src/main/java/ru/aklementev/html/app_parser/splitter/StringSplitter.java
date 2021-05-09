@@ -1,17 +1,19 @@
-package ru.aklementev.html.parser;
+package ru.aklementev.html.app_parser.splitter;
 
 import java.util.ArrayList;
 
 public class StringSplitter implements Splitter {
 
+    public final String DELIMS = "[ .,?!\";:()\\n\\r\\t\\[\\]><«»'/\\\\%@&=]+";
+    public final String REGEXP_VALUE = "^[а-яА-Я]+\\*?$|^IT-.*$";
+
     @Override
     public ArrayList<String> getSplittedArray(String rawString) {
-        String delims = "[ .,?!\";:()\\n\\r\\t\\[\\]><«»'/\\\\%@&=]+";
-        String[] rawWords = rawString.split(delims);
+        String[] rawWords = rawString.split(DELIMS);
         ArrayList<String> goodWords = new ArrayList<>();
         for (String word : rawWords) {
             if (word.length() >= 2 &&
-                    word.matches("^[а-яА-Я]+\\*?$|^IT-.*$")) {
+                    word.matches(REGEXP_VALUE)) {
                 if (word.endsWith("*")) {
                     goodWords.add(word.substring(0, word.length() - 1).toUpperCase());
                 } else

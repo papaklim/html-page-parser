@@ -1,4 +1,10 @@
-package ru.aklementev.html.parser;
+package ru.aklementev.html.app_parser.parser;
+
+import ru.aklementev.html.app_parser.counter.Counter;
+import ru.aklementev.html.app_parser.counter.WordsCounter;
+import ru.aklementev.html.app_parser.model.Result;
+import ru.aklementev.html.app_parser.splitter.Splitter;
+import ru.aklementev.html.app_parser.splitter.StringSplitter;
 
 import java.io.*;
 import java.util.ArrayList;

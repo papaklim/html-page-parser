@@ -1,4 +1,4 @@
-package ru.aklementev.html.parser;
+package ru.aklementev.html.app_parser.splitter;
 
 import java.util.ArrayList;
 
