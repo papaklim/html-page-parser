@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class StringSplitter implements Splitter {
 
-    public final String DELIMS = "[ .,?!\";:()\\n\\r\\t\\[\\]><«»'/\\\\%@&=]+";
-    public final String REGEXP_VALUE = "^[а-яА-Я]+\\*?$|^IT-.*$";
+    private static final String DELIMS = "[ .,?!\";:()\\n\\r\\t\\[\\]><«»'/\\\\%@&=]+";
+    private static final String REGEXP_VALUE = "^[а-яА-Я]+\\*?$|^IT-.*$";
 
     @Override
     public ArrayList<String> getSplittedArray(String rawString) {

@@ -4,7 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.aklementev.html.app_parser.di.MagicMakerWithDataModule;
+import ru.aklementev.html.app_parser.di.AppModule;
 
 
 public class App {
@@ -18,7 +18,7 @@ public class App {
     }
 
     public static void start(String[] urls) {
-        Injector injector = Guice.createInjector(new MagicMakerWithDataModule());
+        Injector injector = Guice.createInjector(new AppModule());
         MagicMakerWithData magicMakerWithData = injector.getInstance(MagicMakerWithData.class);
         magicMakerWithData.doMagicWith(urls);
     }

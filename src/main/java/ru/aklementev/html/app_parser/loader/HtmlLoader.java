@@ -11,9 +11,9 @@ public class HtmlLoader implements Loader {
 
     private static final Logger logger = LogManager.getLogger();
 
-    final String DEFAULT_ENCODING = "UTF-8";
-    final String CONTENT_TYPE_HEADER = "Content-Type";
-    final String METHOD = "GET";
+    private static final String METHOD = "GET";
+    private static final String DEFAULT_ENCODING = "UTF-8";
+    private static final String CONTENT_TYPE_HEADER = "Content-Type";
 
     private String extractEncoding(HttpURLConnection conn) {
         String contentType = conn.getHeaderField(CONTENT_TYPE_HEADER);
