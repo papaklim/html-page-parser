@@ -1,5 +1,6 @@
 package ru.aklementev.html.app_parser;
 
+import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.aklementev.html.app_parser.loader.Loader;
@@ -15,6 +16,7 @@ public class MagicMakerWithData {
     private final Parser parser;
     private final Printer printer;
 
+    @Inject
     public MagicMakerWithData(Loader loader, Parser parser, Printer printer) {
         this.loader = loader;
         this.parser = parser;

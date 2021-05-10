@@ -40,6 +40,8 @@ dependencies {
     compile "org.apache.logging.log4j:log4j-core:${versions.log4j}"
     compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${versions.jackson}"
     compile "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}"
+    implementation "com.google.inject:guice:${versions.guice}"
+
 }
 
 test {

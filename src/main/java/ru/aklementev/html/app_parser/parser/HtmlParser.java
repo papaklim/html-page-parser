@@ -1,18 +1,25 @@
 package ru.aklementev.html.app_parser.parser;
 
+import com.google.inject.Inject;
 import ru.aklementev.html.app_parser.counter.Counter;
-import ru.aklementev.html.app_parser.counter.WordsCounter;
 import ru.aklementev.html.app_parser.model.Result;
 import ru.aklementev.html.app_parser.splitter.Splitter;
-import ru.aklementev.html.app_parser.splitter.StringSplitter;
 
 import java.io.*;
 import java.util.ArrayList;
 
 
 public class HtmlParser implements Parser {
-    private final Splitter splitter = new StringSplitter();
-    private final Counter counter = new WordsCounter();
+
+    private final Splitter splitter;
+    private final Counter counter;
+
+    @Inject
+    public HtmlParser(Splitter splitter, Counter counter) {
+        this.splitter = splitter;
+        this.counter = counter;
+    }
+
 
 
     @Override
