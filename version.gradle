@@ -1,0 +1,7 @@
+ext {
+    versions = [
+            'jupiter': '5.7.0',
+            'log4j'  : '2.14.1',
+            'jackson': '2.12.3'
+    ]
+}
