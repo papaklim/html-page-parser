@@ -1,4 +1,4 @@
-package ru.aklementev.html.app_parser.loader;
+package ru.aklementev.html.app.loader;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

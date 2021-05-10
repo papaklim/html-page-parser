@@ -1,12 +1,12 @@
-package ru.aklementev.html.app_parser;
+package ru.aklementev.html.app;
 
 import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.aklementev.html.app_parser.loader.Loader;
-import ru.aklementev.html.app_parser.model.Result;
-import ru.aklementev.html.app_parser.parser.Parser;
-import ru.aklementev.html.app_parser.printer.Printer;
+import ru.aklementev.html.app.loader.Loader;
+import ru.aklementev.html.app.model.Result;
+import ru.aklementev.html.app.parser.Parser;
+import ru.aklementev.html.app.printer.Printer;
 
 import java.io.File;
 

@@ -3,6 +3,8 @@ plugins {
 }
 apply from: 'version.gradle'
 
+sourceCompatibility = '11'
+targetCompatibility = '11'
 
 tasks.register('uberJar', Jar) {
     manifest {
@@ -12,6 +14,7 @@ tasks.register('uberJar', Jar) {
         )
     }
     archiveClassifier = 'uber'
+    archivesBaseName = "app"
 
     from sourceSets.main.output
 
@@ -27,7 +30,7 @@ build {
 }
 
 group 'ru.aklementev.html.parser'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 repositories {
     mavenCentral()
@@ -36,10 +39,10 @@ repositories {
 dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-api:${versions.jupiter}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${versions.jupiter}"
-    compile "org.apache.logging.log4j:log4j-api:${versions.log4j}"
-    compile "org.apache.logging.log4j:log4j-core:${versions.log4j}"
-    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${versions.jackson}"
-    compile "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}"
+    implementation "org.apache.logging.log4j:log4j-api:${versions.log4j}"
+    implementation "org.apache.logging.log4j:log4j-core:${versions.log4j}"
+    implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:${versions.jackson}"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}"
     implementation "com.google.inject:guice:${versions.guice}"
 
 }

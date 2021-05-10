@@ -1,4 +1,4 @@
-package ru.aklementev.html.app_parser.model;
+package ru.aklementev.html.app.model;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,7 @@ public class Result {
 
     @Override
     public String toString() {
-        return wordCountMap.keySet().stream()
+        return "Result: \n" + wordCountMap.keySet().stream()
                 .map(key -> key + "-" + wordCountMap.get(key))
                 .collect(Collectors.joining("\n"));
     }
