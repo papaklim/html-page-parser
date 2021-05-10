@@ -1,4 +1,4 @@
-package ru.aklementev.html.app.model;
+package ru.aklementev.html.parser.app.model;
 
 import java.util.HashMap;
 import java.util.Map;
