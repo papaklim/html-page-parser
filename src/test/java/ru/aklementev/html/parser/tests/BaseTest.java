@@ -2,16 +2,12 @@ package ru.aklementev.html.parser.tests;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import ru.aklementev.html.parser.di.AppModule;
 import ru.aklementev.html.parser.loader.HtmlLoader;
 import ru.aklementev.html.parser.parser.HtmlParser;
 import ru.aklementev.html.parser.splitter.StringSplitter;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -33,13 +29,5 @@ public class BaseTest {
     StringSplitter stringSplitter = injector.getInstance(StringSplitter.class);
     HtmlParser htmlParser = injector.getInstance(HtmlParser.class);
     HtmlLoader htmlLoader = injector.getInstance(HtmlLoader.class);
-
-
-    @BeforeEach
-    public void setUp() throws IOException {
-        if (Files.exists(filePath)) {
-            Files.delete(filePath);
-        }
-    }
 
 }

@@ -5,7 +5,7 @@
 ## Запуск
 - Склонировать проект `git clone https://github.com/papaklim/html-page-parser.git`
 - Собрать приложение `./gradlew clean build`
-- Запустить приложение с передачей URL в качестве аргумента `java -jar  build/libs/html-page-parser-1.0-uber.jar https://bash.im/`
+- Запустить приложение с передачей URL в качестве аргумента `java -jar  build/libs/app-1.0-uber.jar https://bash.im/`
 
 ## Стек
 - Java 11

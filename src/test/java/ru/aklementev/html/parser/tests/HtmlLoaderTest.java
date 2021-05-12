@@ -15,10 +15,13 @@ class HtmlLoaderTest extends BaseTest {
 
     @Test
     void downloadPageUrlWithCorrectUrl() throws IOException {
-        assertFalse(Files.exists(filePath));
-        htmlLoader.downloadPage(CORRECT_URL);
-        assertTrue(Files.exists(filePath));
-        Files.delete(filePath);
+        if (Files.exists(filePath)) {
+            Files.delete(filePath);
+            assertFalse(Files.exists(filePath));
+            htmlLoader.downloadPage(CORRECT_URL);
+            assertTrue(Files.exists(filePath));
+            Files.delete(filePath);
+        }
     }
 
     @Test

@@ -32,6 +32,7 @@ public class MagicMakerWithData {
             Result result = parser.parseHtml(file);
             printer.print(result);
         } catch (Exception e) {
+            logger.info("Something went wrong. For more information see protocol.log");
             logger.error(e.getMessage(), e);
         }
     }
