@@ -27,6 +27,7 @@ public class HtmlLoader implements Loader {
     @Override
     public File downloadPage(String url) throws IOException {
         File file = new File("parsed_html_page.txt");
+        file.createNewFile();
         HttpURLConnection conn = (HttpURLConnection) new URL(url).openConnection();
         conn.setRequestMethod(METHOD);
         String encoding = extractEncoding(conn);

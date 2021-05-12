@@ -9,8 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class HtmlParserTest extends BaseTest{
 
-    final File NONEXISTENT_FILE = new File("test");
-
     @Test
     void parseHtmlNonexistentFile() {
         assertThrows(FileNotFoundException.class, () -> {
