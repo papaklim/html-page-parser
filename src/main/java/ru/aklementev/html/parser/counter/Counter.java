@@ -1,6 +1,6 @@
-package ru.aklementev.html.parser.app.counter;
+package ru.aklementev.html.parser.counter;
 
-import ru.aklementev.html.parser.app.model.Result;
+import ru.aklementev.html.parser.model.Result;
 
 import java.util.ArrayList;
 

@@ -1,9 +1,9 @@
-package ru.aklementev.html.parser.app.parser;
+package ru.aklementev.html.parser.parser;
 
 import com.google.inject.Inject;
-import ru.aklementev.html.parser.app.counter.Counter;
-import ru.aklementev.html.parser.app.model.Result;
-import ru.aklementev.html.parser.app.splitter.Splitter;
+import ru.aklementev.html.parser.counter.Counter;
+import ru.aklementev.html.parser.model.Result;
+import ru.aklementev.html.parser.splitter.Splitter;
 
 import java.io.*;
 import java.util.ArrayList;

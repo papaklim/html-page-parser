@@ -1,6 +1,6 @@
-package ru.aklementev.html.parser.app.parser;
+package ru.aklementev.html.parser.parser;
 
-import ru.aklementev.html.parser.app.model.Result;
+import ru.aklementev.html.parser.model.Result;
 
 import java.io.File;
 import java.io.IOException;

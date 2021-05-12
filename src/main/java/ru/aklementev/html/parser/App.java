@@ -1,10 +1,10 @@
-package ru.aklementev.html.parser.app;
+package ru.aklementev.html.parser;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.aklementev.html.parser.app.di.AppModule;
+import ru.aklementev.html.parser.di.AppModule;
 
 
 public class App {

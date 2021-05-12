@@ -1,8 +1,8 @@
-package ru.aklementev.html.parser.app.printer;
+package ru.aklementev.html.parser.printer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.aklementev.html.parser.app.model.Result;
+import ru.aklementev.html.parser.model.Result;
 
 public class ConsolePrinter implements Printer {
     private static final Logger logger = LogManager.getLogger();

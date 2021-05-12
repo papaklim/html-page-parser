@@ -1,4 +1,4 @@
-package ru.aklementev.html.parser.app.loader;
+package ru.aklementev.html.parser.loader;
 
 import java.io.File;
 import java.io.IOException;
